@@ -1,16 +1,42 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => res.type("html").send(html));
 
 app.get("/req", (req, res) => {
   console.log("Just got a request!");
   res.send("Yo!");
 });
-
+app.get("/meunome", async (req, res) => {
+  res.send("Meu nome é Gabriel dos Santos OLiveira");
+});
+app.get("/tico", async (req, res) => {
+  res.send("tico");
+});
+app.get("/pokemons", async (req, res) => {
+  res.json(pokemons);
+});
+app.post("/series", async (req, res) => {
+  const series = req.body;
+  res.json({ series });
+});
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-
+const pokemons = {
+  1: "Pikachu",
+  2: "Butterfree",
+  3: "Pidgeot",
+  4: "Charizard",
+  5: "Bulbasaur",
+  6: "Squirtle",
+  7: "Kingler",
+  8: "Tauros",
+  9: "Muk",
+  10: "Primeape",
+  11: "Lapras",
+  12: "Snorlax",
+};
 const html = `
 <!DOCTYPE html>
 <html>
