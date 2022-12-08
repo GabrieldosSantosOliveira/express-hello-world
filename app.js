@@ -20,7 +20,7 @@ app.get("/pokemons", async (req, res) => {
 });
 app.post("/series", async (req, res) => {
   const series = req.body;
-  res.json({ series });
+  res.json({ series: ["The Big Bang Theory", "Station 19", "Supernatural"] });
 });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 const pokemons = {
